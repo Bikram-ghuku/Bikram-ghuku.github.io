@@ -1,0 +1,14 @@
+.c{
+    padding-right: 70px;
+}
+
+.award-img{
+    width: 100px;
+    height: 70px;
+}
+
+.title{
+    font-weight: 500;
+    width: 70px;
+    font-size: 15px;
+}

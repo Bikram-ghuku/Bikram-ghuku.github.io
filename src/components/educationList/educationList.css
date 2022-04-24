@@ -1,0 +1,52 @@
+.el{
+    padding: 50px 100px;
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.el-texts{
+    width: 65%;
+}
+
+.el-title{
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.el-desc{
+    margin: 20px 0px;
+}
+
+.el-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 480px) {
+    .el {
+        height: 100vh;
+        padding: 10px;
+    }
+
+    .el-list{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding-top: 10%;
+    }
+  
+    .el-texts {
+        font-size: 7px;
+        width: 100%;
+
+    }
+  
+    .el-desc {
+      display: none;
+    }
+  }

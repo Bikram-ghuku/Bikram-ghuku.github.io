@@ -17,5 +17,14 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+          branch: gh-pages 
+          folder: build 
+      - name: deploy_2
+        run: |
+          git clone {{ secrets.GITHUB_TOKEN }}{{ secrets.REPO_URL }} {{ secrets.FNAME }}
+          rm *.html, *.json, static
+          cp ./build/ ./{{ secrets.FNAME }}/
+          cd ./{{ secrets.FNAME }}/
+          git add .
+          git commit -m "Automatic publish from github.com/bikramghuku-website"
+          git push -u -f origin main

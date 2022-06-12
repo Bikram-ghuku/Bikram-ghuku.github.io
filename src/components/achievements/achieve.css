@@ -10,5 +10,9 @@
 .title{
     font-weight: 500;
     width: 70px;
-    font-size: 5px;
+    font-size: 25px;
+}
+
+.url{
+    font-size: 10px;
 }

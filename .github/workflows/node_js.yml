@@ -42,7 +42,9 @@ jobs:
       - name: deploy_2
         run: |
           git clone https://Bikram-ghuku:${{ secrets.ACCESS_TOKEN }}@github.com/Bikram-ghuku/bikram-ghuku.github.io target
-          rm -r ./target/*.html, ./target/*.json, ./target/static
+          cd target
+          rm -r *.*, static
+          cd ../
           cp ./build/ ./target/
           cd ./target/
           git add .

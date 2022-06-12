@@ -21,8 +21,8 @@ jobs:
           folder: build 
       - name: deploy_2
         run: |
-          git clone {{ secrets.GITHUB_TOKEN }}{{ secrets.REPO_URL }} {{ secrets.FNAME }}
-          rm *.html, *.json, static
+          git clone {{ secrets.REPO_URL }} {{ secrets.FNAME }}
+          rm -r ./{{ secrets.FNAME }}/*.html, ./{{ secrets.FNAME }}/*.json, ./{{ secrets.FNAME }}/static
           cp ./build/ ./{{ secrets.FNAME }}/
           cd ./{{ secrets.FNAME }}/
           git add .

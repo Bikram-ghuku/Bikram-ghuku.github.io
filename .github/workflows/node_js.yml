@@ -39,14 +39,14 @@ jobs:
         with:
           branch: gh-pages 
           folder: build 
-      - name: deploy_2
-        run: |
-          git clone https://Bikram-ghuku:${{ secrets.ACCESS_TOKEN }}@github.com/Bikram-ghuku/bikram-ghuku.github.io target
-          cd target
-          rm -r asset-manifest.json, index.html, static
-          cd ../
-          cp ./build/ ./target/
-          cd ./target/
-          git add .
-          git commit -m "Automatic publish from github.com/bikramghuku-website"
-          git push -u -f origin main
+#       - name: deploy_2
+#         run: |
+#           git clone https://Bikram-ghuku:${{ secrets.ACCESS_TOKEN }}@github.com/Bikram-ghuku/bikram-ghuku.github.io target
+#           cd target
+#           rm -r asset-manifest.json, index.html, static
+#           cd ../
+#           cp ./build/ ./target/
+#           cd ./target/
+#           git add .
+#           git commit -m "Automatic publish from github.com/bikramghuku-website"
+#           git push -u -f origin main

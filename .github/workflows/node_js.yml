@@ -8,7 +8,27 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+        
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
+      - name: Cache yarn dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: '~/.npm'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           npm i
@@ -21,7 +41,7 @@ jobs:
           folder: build 
       - name: deploy_2
         run: |
-          git clone https://github.com/Bikram-ghuku/bikram-ghuku.github.io target
+          git clone https://Bikram-ghuku:${{ secrets.ACCESS_TOKEN }}@github.com/Bikram-ghuku/bikram-ghuku.github.io target
           rm -r ./target/*.html, ./target/*.json, ./target/static
           cp ./build/ ./target/
           cd ./target/

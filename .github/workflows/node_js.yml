@@ -43,7 +43,7 @@ jobs:
         run: |
           git clone https://Bikram-ghuku:${{ secrets.ACCESS_TOKEN }}@github.com/Bikram-ghuku/bikram-ghuku.github.io target
           cd target
-          rm -r *.*, static
+          rm -r asset-manifest.json, index.html, static
           cd ../
           cp ./build/ ./target/
           cd ./target/

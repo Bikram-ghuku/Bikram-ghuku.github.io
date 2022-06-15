@@ -19,7 +19,7 @@ export const certs=[
     },
     {
         id:4,
-        name:"Postman student expert",
+        name:"Postman Student Expert",
         url:"https://api.badgr.io/public/assertions/UrK9J1n6QOiU_yWr8yBfWg",
         imgUrl:"https://imgur.com/8ZwoW1F.png"
     }
